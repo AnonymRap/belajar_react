@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter App</title>
+    <style>
+        .App {
+            text-align: center;
+            margin-top: 50px;
+        }
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <!-- Load React, ReactDOM, and Babel -->
+    <script src="https://unpkg.com/react/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <!-- React code written in JSX -->
+    <script type="text/babel">
+        // App.js
+        const { useState } = React;
+
+        function App() {
+          // State untuk menyimpan nilai
+          const [count, setCount] = useState(0);
+
+          // Fungsi untuk menambah nilai
+          const increase = () => {
+            setCount(count + 1);
+          };
+
+          // Fungsi untuk mengurangi nilai
+          const decrease = () => {
+            setCount(count - 1);
+          };
+
+          return (
+            <div className="App">
+              <h1>Count: {count}</h1>
+              <button onClick={decrease}>-</button>
+              <button onClick={increase}>+</button>
+            </div>
+          );
+        }
+        // Render App component
+        ReactDOM.render(<App />, document.getElementById('root'));
+    </script>
+</body>
+</html>
+
